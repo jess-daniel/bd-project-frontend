@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import { StateProvider } from 'react-conflux';
+
+// local imports
 import './App.css';
+import NavBar from './components/NavBar';
+import Hero from './components/Hero';
+import Messages from './components/Messages';
+import { messagesContext } from './contexts';
+import { messagesReducer } from './reducers';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path="/">
+        <NavBar />
+      </Route>
+      <Route exact path="/">
+        <Hero />
+      </Route>
+      <StateProvider reducer={messagesReducer} stateContext={messagesContext}>
+        <Route exact path="/">
+          <Messages />
+        </Route>
+      </StateProvider>
+      {/* main content - messages */}
+      {/* Submit Message Form */}
     </div>
   );
 }
