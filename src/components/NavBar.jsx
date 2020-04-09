@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,10 +14,15 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   button: {
+    color: 'white',
+    textDecoration: 'none',
     '&:hover': {
       backgroundColor: 'white',
       color: 'black',
     },
+  },
+  link: {
+    textDecoration: 'none',
   },
   title: {
     flexGrow: 1,
@@ -31,11 +37,13 @@ const NavBar = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Happy Birthday Roomie!
+            Message Thing
           </Typography>
-          <Button className={classes.button} color="inherit">
-            Add A Message!
-          </Button>
+          <Link to="/add-message" className={classes.link}>
+            <Button className={classes.button} color="inherit">
+              Add A Message!
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

@@ -10,10 +10,13 @@ const useStyles = makeStyles((theme) => ({
   card: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.secondary.main,
     width: '75%',
     paddingTop: '20px',
     height: '150px',
+  },
+  text: {
+    textAlign: 'center',
   },
 }));
 
@@ -22,9 +25,8 @@ const HeroCard = () => {
 
   return (
     <Box className={classes.card}>
-      <Typography variant="h6" component="h1">
-        Hey! I developed this website in under 2 days to give the community a
-        way to say Happy Birthday to RoomieOfficial ;)
+      <Typography className={classes.text} variant="h6" component="h1">
+        Message Board
       </Typography>
     </Box>
   );

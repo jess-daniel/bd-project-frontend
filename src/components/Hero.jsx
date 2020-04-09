@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.palette.secondary.dark,
+    height: '300px',
   },
   rootContainer: {
     width: '100%',
@@ -26,12 +29,8 @@ const Hero = () => {
   return (
     <>
       <CssBaseline />
-      <Container className={classes.rootContainer} maxWidth="false">
-        <Typography
-          className={classes.container}
-          component="div"
-          style={{ backgroundColor: '#cfe8fc', height: '100vh' }}
-        >
+      <Container className={classes.rootContainer} maxWidth={false}>
+        <Typography className={classes.container} component="div">
           <HeroCard />
         </Typography>
       </Container>
