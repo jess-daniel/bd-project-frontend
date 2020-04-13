@@ -8,14 +8,20 @@ import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import Messages from './components/Messages';
 import AddMessage from './components/AddMessage';
+import Footer from './components/Footer';
 import { messagesContext } from './contexts';
 import { messagesReducer } from './reducers';
+
+// TODO: Bring in brand name from state after registration
+const brand = {
+  name: 'Message Thing',
+};
 
 function App() {
   return (
     <div className="App">
       <Route path="/">
-        <NavBar />
+        <NavBar brandName={brand.name} />
       </Route>
       <Route exact path="/">
         <Hero />
@@ -28,6 +34,9 @@ function App() {
           <AddMessage />
         </Route>
       </StateProvider>
+      <Route path="/">
+        <Footer brandName={brand.name} />
+      </Route>
     </div>
   );
 }

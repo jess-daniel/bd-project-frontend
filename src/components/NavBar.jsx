@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = () => {
+const NavBar = ({ brandName }) => {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ const NavBar = () => {
         <Toolbar className={classes.bar}>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" className={classes.link}>
-              Message Thing
+              {brandName}
             </Link>
           </Typography>
           <MainNav />
